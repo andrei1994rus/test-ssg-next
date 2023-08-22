@@ -1,6 +1,7 @@
 import { getAllPosts } from '@/services/getPosts';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { Post } from '@/types/types';
 
 export const metadata: Metadata = {
   title: 'Blog page | Next',
@@ -14,7 +15,7 @@ export default async function Blog() {
     <>
       <h1>Blog page</h1>
       <ul>
-        {posts.map((post: any) => (
+        {posts.map((post: Post) => (
           <li key={post.id}>
             <Link href={`/blog/${post.id}`}>{post.title}</Link>
           </li>

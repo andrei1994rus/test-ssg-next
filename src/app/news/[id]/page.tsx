@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getAllNews, getNewsById } from '@/services/getNews';
-import { Props } from '@/types/types';
+import { Props, News, singleNews } from '@/types/types';
 
 export const metadata: Metadata = {
   title: 'News page | Next',
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   }
 
   console.log('news gen:', news.news);
-  const result: any[] = news.news;
+  const result: News = news.news;
 
   return result.map((news) => ({
     slug: news.id.toString(),
@@ -24,17 +24,17 @@ export async function generateStaticParams() {
 }
 
 export default async function News({ params: { id } }: Props) {
-  const news = await getNewsById(id);
+  const news: singleNews = await getNewsById(id);
 
   try {
-    if (!news.title && !news.body) {
+    if (!news) {
       throw new Error('NOT FOUND');
     }
   } catch (e) {
     console.warn(e);
     return <div className="div_error">Not found news!</div>;
   }
-  const { title, body } = news;
+  const { title, body, date } = news;
 
   return (
     <>
