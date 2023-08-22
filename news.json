@@ -3,12 +3,14 @@
 		{
 			"id": 1,
 			"title": "Update Next JS! v13.0",
-			"body": "Next JS realized new version 13.0. \nNext JS added component Image.\nNext JS added @next/font."
+			"body": "Next JS realized new version 13.0. \nNext JS added component Image.\nNext JS added @next/font.",
+			"date": "25/10/2022"
 		},
 		{
 			"id": 2,
 			"title": "Vercel supports databases",
-			"body": "Then Vercel has set of solutions for serverless data storage:\nVercel KV (for Redis);\nVercel Postgres;\nVercel Blob"
+			"body": "Then Vercel has set of solutions for serverless data storage:\nVercel KV (for Redis);\nVercel Postgres;\nVercel Blob",
+			"date": "02/05/2023"
 		}
 	]
 }
