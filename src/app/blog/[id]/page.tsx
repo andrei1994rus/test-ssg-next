@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { getAllPosts, getPostById } from '@/services/getPosts';
 import { Posts, Post, Props } from '@/types/types';
+import styles from '@/styles/Post.module.css';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Post page | Next',
@@ -30,14 +32,31 @@ export default async function Post({ params: { id } }: Props) {
     }
   } catch (e) {
     console.warn(e);
-    return <div className="div_error">Not found posts!</div>;
+    return (
+      <>
+        <div className={styles.post}>
+          <div className={styles.post__error}>Not found posts!</div>
+
+          <div className={styles.post__comeback}>
+            <Link href="/blog">Go to blog page</Link>
+          </div>
+        </div>
+      </>
+    );
   }
+
   const { title, body } = post;
 
   return (
-    <>
-      <h1>{title}</h1>
-      <p>{body}</p>
-    </>
+    <div className={styles.post}>
+      <div className={styles.post__title}>
+        <h1>{title}</h1>
+      </div>
+      <div className={styles.post__body}>{body}</div>
+
+      <div className={styles.post__comeback}>
+        <Link href="/blog">Go to blog page</Link>
+      </div>
+    </div>
   );
 }

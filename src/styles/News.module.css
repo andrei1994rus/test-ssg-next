@@ -1,0 +1,20 @@
+.news
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2vw;
+  font-size: 5vh;
+  padding-top: 2vh;
+}
+
+.news ul
+{
+  padding-left: 2vw;
+}
+
+.news__comeback
+{
+  color: red;
+  padding-top: 2vh;
+}

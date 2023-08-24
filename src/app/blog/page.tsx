@@ -2,6 +2,7 @@ import { getAllPosts } from '@/services/getPosts';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { Post } from '@/types/types';
+import styles from '@/styles/Blog.module.css';
 
 export const metadata: Metadata = {
   title: 'Blog page | Next',
@@ -13,14 +14,16 @@ export default async function Blog() {
 
   return (
     <>
-      <h1>Blog page</h1>
-      <ul>
-        {posts.map((post: Post) => (
-          <li key={post.id}>
-            <Link href={`/blog/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className={styles.blog}>
+        <h1>Blog page</h1>
+        <ul>
+          {posts.map((post: Post) => (
+            <li key={post.id}>
+              <Link href={`/blog/${post.id}`}>{post.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

@@ -1,0 +1,14 @@
+.blog
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2vw;
+  font-size: 5vh;
+  padding-top: 2vh;
+}
+
+.blog ul
+{
+  padding-left: 2vw;
+}
