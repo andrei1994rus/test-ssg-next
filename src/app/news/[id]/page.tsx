@@ -40,7 +40,7 @@ export default async function News({ params: { id } }: Props) {
           <div className={styles.news__error}>Not found news!</div>
 
           <div className={styles.news__comeback}>
-            <Link href="/blog">Go to news list</Link>
+            <Link href="/news">Go to news list</Link>
           </div>
         </div>
       </>
