@@ -1,6 +1,8 @@
+'use client';
 import { Metadata } from 'next';
 import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
+import hideMenuAfterClick from '@/handleClick/hideMenuAfterClick';
 
 export const metadata: Metadata = {
   title: 'Home page | Next',
@@ -14,14 +16,22 @@ export default function Home() {
       <ul className={styles.main__ul}>
         <li>
           output list all news (
-          <Link className={styles.main__link} href="/news">
+          <Link
+            className={styles.main__link}
+            href="/news"
+            onClick={hideMenuAfterClick}
+          >
             /news
           </Link>
           );
         </li>
         <li>
           output list all posts (
-          <Link className={styles.main__link} href="/blog">
+          <Link
+            className={styles.main__link}
+            href="/blog"
+            onClick={hideMenuAfterClick}
+          >
             /blog
           </Link>
           ).

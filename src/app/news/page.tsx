@@ -17,7 +17,7 @@ export default async function NewsPage() {
     <>
       <div className={styles.news}>
         <h1>News page</h1>
-        <ul>
+        <ul className={styles.news__ul}>
           {result.map((news: singleNews) => (
             <li key={news.id}>
               <Link href={`/news/${news.id}`}>{news.title}</Link>

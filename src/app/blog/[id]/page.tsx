@@ -1,8 +1,10 @@
+'use client';
 import { Metadata } from 'next';
 import { getAllPosts, getPostById } from '@/services/getPosts';
 import { Posts, Post, Props } from '@/types/types';
 import styles from '@/styles/Post.module.css';
 import Link from 'next/link';
+import hideMenuAfterClick from '@/handleClick/hideMenuAfterClick';
 
 export const metadata: Metadata = {
   title: 'Post page | Next',
@@ -22,6 +24,25 @@ export async function generateStaticParams() {
   }));
 }
 
+function postContent(title: string, body: string) {
+  return (
+    <>
+      <div className={styles.post}>
+        <div className={styles.post__title}>
+          <h1>{title}</h1>
+        </div>
+        <div className={styles.post__body}>{body}</div>
+      </div>
+
+      <div className={styles.post__comeback}>
+        <Link href="/blog" onClick={hideMenuAfterClick}>
+          Go to blog page
+        </Link>
+      </div>
+    </>
+  );
+}
+
 export default async function Post({ params: { id } }: Props) {
   const reqPost = await getPostById(id);
   const post: Post | null = await reqPost?.json();
@@ -38,7 +59,9 @@ export default async function Post({ params: { id } }: Props) {
           <div className={styles.post__error}>Not found posts!</div>
 
           <div className={styles.post__comeback}>
-            <Link href="/blog">Go to blog page</Link>
+            <Link href="/blog" onClick={hideMenuAfterClick}>
+              Go to blog page
+            </Link>
           </div>
         </div>
       </>
@@ -47,16 +70,5 @@ export default async function Post({ params: { id } }: Props) {
 
   const { title, body } = post;
 
-  return (
-    <div className={styles.post}>
-      <div className={styles.post__title}>
-        <h1>{title}</h1>
-      </div>
-      <div className={styles.post__body}>{body}</div>
-
-      <div className={styles.post__comeback}>
-        <Link href="/blog">Go to blog page</Link>
-      </div>
-    </div>
-  );
+  return postContent(title, body);
 }

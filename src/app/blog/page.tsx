@@ -16,7 +16,7 @@ export default async function Blog() {
     <>
       <div className={styles.blog}>
         <h1>Blog page</h1>
-        <ul>
+        <ul className={styles.blog__ul}>
           {posts.map((post: Post) => (
             <li key={post.id}>
               <Link href={`/blog/${post.id}`}>{post.title}</Link>
