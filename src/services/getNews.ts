@@ -1,22 +1,14 @@
-import fsPromises from 'fs/promises';
-import path from 'path';
+import news from '../news.json';
 
 export async function getAllNews() {
-  const filePath = path.join(process.cwd(), 'news.json');
-  const jsonData: any = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData);
-
-  console.log(objectData);
+  console.log(news);
+  const objectData = news;
 
   return objectData;
 }
 
 export async function getNewsById(id: string) {
-  const filePath = path.join(process.cwd(), 'news.json');
-  const jsonData: any = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData);
-
-  const result: any[] = objectData.news;
+  const result: any[] = news.news;
   let object: any;
 
   console.log('result:', result);

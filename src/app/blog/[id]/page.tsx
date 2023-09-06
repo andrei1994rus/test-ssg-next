@@ -32,12 +32,12 @@ function postContent(title: string, body: string) {
           <h1>{title}</h1>
         </div>
         <div className={styles.post__body}>{body}</div>
-      </div>
 
-      <div className={styles.post__comeback}>
-        <Link href="/blog" onClick={hideMenuAfterClick}>
-          Go to blog page
-        </Link>
+        <div className={styles.post__comeback}>
+          <Link href="/blog" onClick={hideMenuAfterClick}>
+            Go to blog page
+          </Link>
+        </div>
       </div>
     </>
   );

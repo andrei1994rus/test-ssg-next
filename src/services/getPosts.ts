@@ -8,10 +8,6 @@ export async function getAllPosts() {
     return null;
   }
 
-  /*if (!response.ok) {
-    throw new Error('Unable to fetch posts');
-  }*/
-
   return response;
 }
 
