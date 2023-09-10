@@ -32,8 +32,8 @@ a {
 		font-size: 18px;
 	}
 
-	.MuiBox-root[data-type~='modal-box'] {
-		padding: 8px;
+	a[data-type~='header-link'] {
+		font-size: 6vw;
 	}
 }
 
@@ -46,18 +46,14 @@ a {
 		font-size: 14.5px;
 	}
 
-	.MuiBox-root[data-type~='modal-box'] {
-		padding: 4px;
+	a[data-type~='header-link'] {
+		font-size: 7vw;
 	}
 }
 
 @media(max-width:320px) {
-	.MuiButtonBase-root {
-		margin-right: 2px;
-	}
-
 	a[data-type~='header-link'] {
-		font-size: 8.2vw;
+		font-size: 7.2vw;
 	}
 }
 /* ________________________ */

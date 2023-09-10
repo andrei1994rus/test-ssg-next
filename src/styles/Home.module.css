@@ -2,18 +2,29 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 2vw;
+  padding-left: 3vw;
   font-size: 5vh;
   padding-top: 2vh;
 }
 
 .main__ul {
-  padding-left: 2.5vw;
+  padding-left: 3vw;
 }
 
 .main__warning,
 .main__link {
   color: red;
+}
+
+/* Tablet */
+@media(700px<width<1024px) {
+  .main {
+    padding-left: 4.5vw;
+  }
+
+  .main__list {
+    padding-left: 4.5vw;
+  }
 }
 
 /* Mobile */
@@ -22,12 +33,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: 3vw;
+    padding-left: 4vw;
     font-size: 6vw;
     padding-top: 2.5vh;
   }
 
   .main__ul {
-    padding-left: 4.5vw;
+    padding-left: 5.5vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .main__ul {
+    padding-left: 6vw;
   }
 }
