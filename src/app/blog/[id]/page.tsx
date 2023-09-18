@@ -4,7 +4,12 @@ import { Posts, Post, Props } from '@/types/types';
 import styles from '@/styles/Post.module.css';
 import Link from 'next/link';
 import hideMenuAfterClick from '@/handleClick/hideMenuAfterClick';
-import Head from 'next/head';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+  subsets: ['cyrillic', 'latin'],
+  weight: ['400', '500'],
+});
 
 export async function generateStaticParams() {
   let posts: Posts = [];
@@ -22,20 +27,18 @@ export async function generateStaticParams() {
 function postContent(title: string, body: string) {
   return (
     <>
-      <Head>
-        <title>Post page | Next</title>
-        <meta name="description" content="Post page" />
-      </Head>
-      <div className={styles.post}>
-        <div className={styles.post__title}>
-          <h1>{title}</h1>
-        </div>
-        <div className={styles.post__body}>{body}</div>
+      <div className={roboto.className}>
+        <div className={styles.post}>
+          <div className={styles.post__title}>
+            <h1>{title}</h1>
+          </div>
+          <div className={styles.post__body}>{body}</div>
 
-        <div className={styles.post__comeback}>
-          <Link href="/blog" onClick={hideMenuAfterClick}>
-            Go to blog page
-          </Link>
+          <div className={styles.post__comeback}>
+            <Link href="/blog" onClick={hideMenuAfterClick}>
+              Go to blog page
+            </Link>
+          </div>
         </div>
       </div>
     </>
@@ -54,13 +57,15 @@ export default async function Post({ params: { id } }: Props) {
     console.warn(e);
     return (
       <>
-        <div className={styles.post}>
-          <div className={styles.post__error}>Not found posts!</div>
+        <div className={roboto.className}>
+          <div className={styles.post}>
+            <div className={styles.post__error}>Not found posts!</div>
 
-          <div className={styles.post__comeback}>
-            <Link href="/blog" onClick={hideMenuAfterClick}>
-              Go to blog page
-            </Link>
+            <div className={styles.post__comeback}>
+              <Link href="/blog" onClick={hideMenuAfterClick}>
+                Go to blog page
+              </Link>
+            </div>
           </div>
         </div>
       </>

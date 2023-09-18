@@ -1,9 +1,10 @@
+import NavigationBar from '@/components/navigationBar';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Home page | Next',
-  description: 'Home page',
+  title: 'Post page | Next',
+  description: 'Post page',
   viewport: 'width=device-width, initial-scale=1',
 };
 
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <NavigationBar />
+        {children}
+      </body>
     </html>
   );
 }

@@ -4,7 +4,15 @@ import { Props, News, singleNews } from '@/types/types';
 import styles from '@/styles/News.module.css';
 import Link from 'next/link';
 import hideMenuAfterClick from '@/handleClick/hideMenuAfterClick';
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import { Roboto } from 'next/font/google';
+
+const roboto = Roboto({
+  subsets: ['cyrillic', 'latin'],
+  weight: ['400', '500'],
+});
+
+const NavigationBar = dynamic(() => import('@/components/navigationBar'));
 
 export async function generateStaticParams() {
   let news: any;
@@ -24,21 +32,19 @@ export async function generateStaticParams() {
 function newsContent(title: string, body: string, date: string) {
   return (
     <>
-      <Head>
-        <title>News page | Next</title>
-        <meta name="description" content="News page with one news" />
-      </Head>
-      <div className={styles.news}>
-        <div className={styles.news__date}>{date}</div>
-        <div className={styles.news__title}>
-          <h1>{title}</h1>
-        </div>
-        <div className={styles.news__body}>{body}</div>
+      <div className={roboto.className}>
+        <div className={styles.news}>
+          <div className={styles.news__date}>{date}</div>
+          <div className={styles.news__title}>
+            <h1>{title}</h1>
+          </div>
+          <div className={styles.news__body}>{body}</div>
 
-        <div className={styles.news__comeback}>
-          <Link href="/news" onClick={hideMenuAfterClick}>
-            Go to news list
-          </Link>
+          <div className={styles.news__comeback}>
+            <Link href="/news" onClick={hideMenuAfterClick}>
+              Go to news list
+            </Link>
+          </div>
         </div>
       </div>
     </>
@@ -56,13 +62,15 @@ export default async function News({ params: { id } }: Props) {
     console.warn(e);
     return (
       <>
-        <div className={styles.news}>
-          <div className={styles.news__error}>Not found news!</div>
+        <div className={roboto.className}>
+          <div className={styles.news}>
+            <div className={styles.news__error}>Not found news!</div>
 
-          <div className={styles.news__comeback}>
-            <Link href="/news" onClick={hideMenuAfterClick}>
-              Go to news list
-            </Link>
+            <div className={styles.news__comeback}>
+              <Link href="/news" onClick={hideMenuAfterClick}>
+                Go to news list
+              </Link>
+            </div>
           </div>
         </div>
       </>
