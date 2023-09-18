@@ -1,15 +1,10 @@
 'use client';
-import { Metadata } from 'next';
 import { getAllNews, getNewsById } from '@/services/getNews';
 import { Props, News, singleNews } from '@/types/types';
 import styles from '@/styles/News.module.css';
 import Link from 'next/link';
 import hideMenuAfterClick from '@/handleClick/hideMenuAfterClick';
-
-export const metadata: Metadata = {
-  title: 'News page | Next',
-  description: 'News page with one news',
-};
+import Head from 'next/head';
 
 export async function generateStaticParams() {
   let news: any;
@@ -29,6 +24,10 @@ export async function generateStaticParams() {
 function newsContent(title: string, body: string, date: string) {
   return (
     <>
+      <Head>
+        <title>News page | Next</title>
+        <meta name="description" content="News page with one news" />
+      </Head>
       <div className={styles.news}>
         <div className={styles.news__date}>{date}</div>
         <div className={styles.news__title}>

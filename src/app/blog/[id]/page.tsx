@@ -1,15 +1,10 @@
 'use client';
-import { Metadata } from 'next';
 import { getAllPosts, getPostById } from '@/services/getPosts';
 import { Posts, Post, Props } from '@/types/types';
 import styles from '@/styles/Post.module.css';
 import Link from 'next/link';
 import hideMenuAfterClick from '@/handleClick/hideMenuAfterClick';
-
-export const metadata: Metadata = {
-  title: 'Post page | Next',
-  description: 'Post page',
-};
+import Head from 'next/head';
 
 export async function generateStaticParams() {
   let posts: Posts = [];
@@ -27,6 +22,10 @@ export async function generateStaticParams() {
 function postContent(title: string, body: string) {
   return (
     <>
+      <Head>
+        <title>Post page | Next</title>
+        <meta name="description" content="Post page" />
+      </Head>
       <div className={styles.post}>
         <div className={styles.post__title}>
           <h1>{title}</h1>
