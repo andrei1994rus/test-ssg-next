@@ -8,6 +8,7 @@ This app has async request and SSG (Static Site Generation).
 
 # Functions
 
+- Has router app;
 - Adaptive;
 - Has news and blog;
 - Handle 404 error (wrong post and news);
@@ -17,8 +18,8 @@ This app has async request and SSG (Static Site Generation).
 
 # Used stack technology
 
-- React;
-- Next;
+- ReactJS;
+- NextJS;
 - Typescript;
 - CSS;
 - Method: Desktop First;
